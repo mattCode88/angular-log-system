@@ -1,0 +1,38 @@
+<section class="section">
+
+  <form [formGroup]="registerForm" (ngSubmit)="verificaForm()">
+
+    <div>
+      <label for="username">Username</label>
+      <div>
+        <input type="text" id="username" formControlName="username">
+      </div>
+      <p class="error" *ngIf="registerForm.controls['username'].hasError('required')">*Il campo è richiesto.</p>
+      <p class="error" *ngIf="registerForm.controls['username'].hasError('minlength')">*Lo username deve avere almeno 3 caratteri.</p>
+    </div>
+
+    <div>
+      <label for="email">Mail</label>
+      <div>
+        <input type="email" id="email" formControlName="email">
+      </div>
+      <p class="error" *ngIf="registerForm.controls['email'].hasError('required')">*Il campo è richiesto.</p>
+      <p class="error" *ngIf="registerForm.controls['email'].hasError('invalidMail')">*Inserire mail valida.</p>
+    </div>
+
+    <div>
+      <label for="password">Password</label>
+      <div>
+        <input type="password" id="password" formControlName="password">
+      </div>
+      <p class="error" *ngIf="registerForm.controls['password'].hasError('required')">*Il campo è richiesto.</p>
+      <p class="error" *ngIf="registerForm.controls['password'].hasError('invalidPassword')">*La password deve contenere almeno una maiuscola un numero, un simbolo e avere almeno 8 caratteri.</p>
+    </div>
+
+    <p class="error" *ngIf="erroreDiRegistrazione.status">{{ erroreDiRegistrazione.message }}</p>
+
+    <button type="submit" class="btn">REGISTRATI</button>
+
+  </form>
+
+</section>

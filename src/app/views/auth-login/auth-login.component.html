@@ -1,0 +1,25 @@
+<section class="section">
+
+  <form [formGroup]="loginrForm" (ngSubmit)="loginSubmit()">
+
+    <div>
+      <label for="username">Username</label>
+      <div>
+        <input type="text" id="username" formControlName="username">
+      </div>
+    </div>
+
+    <div>
+      <label for="password">Password</label>
+      <div>
+        <input type="password" id="password" formControlName="password">
+      </div>
+    </div>
+
+    <button type="submit" class="btn">LOGIN</button>
+
+    <p class="error" *ngIf="erroreDiLogin.status">{{ erroreDiLogin.message }}</p>
+
+  </form>
+
+</section>
